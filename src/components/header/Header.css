@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "main";
+  src: url(../../assets/fonts/MANILA.ttf);
+}
+.header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-title {
+  width: 100%;
+  margin: 30px auto;
+}
+h1 {
+  font-size: 8rem;
+  color: white;
+  font-family: "main";
+  font-weight: 500;
+  margin: 30px auto;
+}

@@ -1,0 +1,42 @@
+.medal-total {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  min-width: 800px;
+  margin-top: 10px;
+  width: 90%;
+  background-color: rgba(185, 198, 203, 0.57);
+}
+
+.medal-total th,
+.medal-total td {
+  width: 130px;
+  height: 30px;
+  text-align: center;
+}
+
+.medal-total thead {
+  background-color: var(--mainColor);
+  color: white;
+  font-weight: 300;
+}
+
+.medal-total tbody td {
+  border: 1px solid var(--mainColor);
+  background-color: rgba(240, 248, 255, 0.724);
+}
+
+.medal-total tbody td:last-child {
+  border: none;
+}
+.medal-total tbody button {
+  width: 50%;
+  height: 100%;
+  background-color: rgba(185, 198, 203);
+  border: 1px solid var(--mainColor);
+  cursor: pointer;
+}
+
+.medal-edit-button {
+  border-right: none;
+}

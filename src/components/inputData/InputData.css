@@ -1,0 +1,81 @@
+:root {
+  --mainColor: rgb(0, 51, 72);
+}
+@font-face {
+  font-family: "main";
+  src: url(../../assets/fonts/MANILA.ttf);
+}
+
+h3 {
+  font-family: "main";
+  letter-spacing: 0.5rem;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 10px;
+  color: var();
+}
+.contents {
+  width: 800px;
+  min-width: 600px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 30px;
+  background-color: rgba(185, 198, 203, 0.57);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.content span {
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--mainColor);
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.content input {
+  width: 130px;
+  height: 30px;
+  border: 1px solid var(--mainColor);
+  border-radius: 3px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: rgba(240, 248, 255, 0.724);
+}
+
+.buttons {
+  width: 200px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  border: none;
+}
+
+.buttons button {
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+
+  border: 1px solid var(--mainColor);
+  color: var(--mainColor);
+  border-radius: 3px;
+  padding: 5px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.buttons button:nth-child(1) {
+  margin-left: 10px;
+}
