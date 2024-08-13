@@ -24,38 +24,45 @@ function InputData() {
     }));
   };
 
-  // 국가 추가 또는 업데이트 버튼 클릭 시
-  const addOrUpdateCountry = () => {
+  // 국가추가 버튼 클릭 시
+  const addCountry = () => {
     if (country === "" || Object.values(medal).every((val) => val === 0)) {
       alert("국가와 메달개수를 입력해주세요");
       return;
     }
 
-    // 국가가 이미 존재하는지 확인
-    const existingIndex = result.findIndex((item) => item.country === country);
+    // 국가가 이미 존재하지 않으면 추가
+    const editIndex = result.findIndex((item) => item.country === country);
 
-    if (existingIndex !== -1) {
-      // 이미 존재하는 국가 업데이트
+    if (editIndex === -1) {
+      setResult((prevResult) => [...prevResult, { country, ...medal }]);
+      setCountry("");
+      setMedal({ 금: 0, 은: 0, 동: 0 });
+    } else {
+      alert("이미 존재하는 국가입니다. 업데이트를 눌러주세요");
+    }
+  };
+
+  // 업데이트 버튼 클릭 시
+  const updateCountry = () => {
+    const editIndex = result.findIndex((item) => item.country === country);
+    if (editIndex !== null) {
       setResult((prevResult) =>
         prevResult.map((item, index) =>
-          index === existingIndex ? { country, ...medal } : item
+          index === editIndex ? { country, ...medal } : item
         )
       );
+      setEditIndex(null);
+      setCountry("");
+      setMedal({ 금: 0, 은: 0, 동: 0 });
     } else {
-      // 새로운 국가 추가
-      setResult((prevResult) => [...prevResult, { country, ...medal }]);
+      alert("업데이트할 항목을 선택해주세요.");
     }
-
-    // 입력 창 초기화
-    setCountry("");
-    setMedal({ 금: 0, 은: 0, 동: 0 });
-    setEditIndex(null); // editIndex 초기화
   };
 
   // 결과 삭제 버튼 클릭 시
   const deleteData = (index) => {
     setResult((prevResult) => prevResult.filter((_, i) => i !== index));
-    setEditIndex(null); // 삭제 후 인덱스 초기화
   };
 
   // 수정 버튼 클릭 시
@@ -63,7 +70,7 @@ function InputData() {
     const item = result[index];
     setCountry(item.country);
     setMedal({ 금: item.금, 은: item.은, 동: item.동 });
-    setEditIndex(index); // 수정할 항목의 인덱스 설정
+    setEditIndex(index);
   };
 
   // 메달 결과 금메달 순으로 정렬
@@ -94,7 +101,7 @@ function InputData() {
             />
           </div>
         ))}
-        <ButtonEvent addCountry={addOrUpdateCountry} />
+        <ButtonEvent addCountry={addCountry} update={updateCountry} />
       </div>
       <h3>OLYMPIC RANK</h3>
       <Result result={sortedGoldList} onDelete={deleteData} onEdit={editData} />
