@@ -3,8 +3,9 @@ import "./InputData.css";
 import ButtonEvent from "../buttonEvent/ButtonEvent";
 import Result from "../result/result";
 
+const MedalColor = ["금", "은", "동"];
+
 function InputData() {
-  const medalColor = ["금", "은", "동"];
   const [country, setCountry] = useState("");
   const [medal, setMedal] = useState({ 금: 0, 은: 0, 동: 0 });
   const [result, setResult] = useState([]);
@@ -34,8 +35,8 @@ function InputData() {
     const existingIndex = result.findIndex((item) => item.country === country);
 
     if (existingIndex !== -1) {
-      alert("이미 존재하는 국가입니다. 업데이트를 눌러주세요");
       setEditIndex(existingIndex); // 수정할 항목의 인덱스 설정
+      alert("이미 존재하는 국가입니다. 업데이트를 눌러주세요");
     } else {
       // 결과에 국가 추가
       setResult((prevResult) => [...prevResult, { country, ...medal }]);
@@ -89,7 +90,7 @@ function InputData() {
             onChange={medalCountry}
           />
         </div>
-        {medalColor.map((color) => (
+        {MedalColor.map((color) => (
           <div className="content" key={color}>
             <span>{color}메달</span>
             <input
