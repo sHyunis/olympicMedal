@@ -77,6 +77,8 @@ function InputData() {
     setEditIndex(index); // 수정할 항목의 인덱스 설정
   };
 
+  // 메달 결과 금메달 순으로 정렬
+  const sortedGoldList = [...result].sort((a, b) => b.금 - a.금);
   return (
     <>
       <h3>ENTER MEDALS</h3>
@@ -105,7 +107,12 @@ function InputData() {
         <ButtonEvent addCountry={addCountry} update={update} />
       </div>
       <h3>OLYMPIC RANK</h3>
-      <Result result={result} onDelete={deleteData} onEdit={editData} />
+      <Result
+        result={sortedGoldList}
+        onDelete={deleteData}
+        onEdit={editData}
+        ㅋ
+      />
     </>
   );
 }
