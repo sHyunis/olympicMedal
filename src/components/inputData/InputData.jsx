@@ -107,12 +107,7 @@ function InputData() {
         <ButtonEvent addCountry={addCountry} update={update} />
       </div>
       <h3>OLYMPIC RANK</h3>
-      <Result
-        result={sortedGoldList}
-        onDelete={deleteData}
-        onEdit={editData}
-        ㅋ
-      />
+      <Result result={sortedGoldList} onDelete={deleteData} onEdit={editData} />
     </>
   );
 }
