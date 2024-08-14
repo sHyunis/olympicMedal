@@ -32,7 +32,9 @@ function InputData() {
     }
 
     // 국가가 이미 존재하지 않으면 추가
-    const editIndex = result.findIndex((item) => item.country === country);
+    const editIndex = result.findIndex(
+      (item) => item.country.toLowerCase() === country.toLowerCase()
+    );
 
     if (editIndex === -1) {
       setResult((prevResult) => [...prevResult, { country, ...medal }]);
@@ -45,7 +47,10 @@ function InputData() {
 
   // 업데이트 버튼 클릭 시
   const updateCountry = () => {
-    const editIndex = result.findIndex((item) => item.country === country);
+    const editIndex = result.findIndex(
+      (item) => item.country.toLowerCase() === country.toLowerCase()
+    );
+    console.log(editIndex);
     if (editIndex !== null) {
       setResult((prevResult) =>
         prevResult.map((item, index) =>
@@ -55,8 +60,9 @@ function InputData() {
       setEditIndex(null);
       setCountry("");
       setMedal({ 금: 0, 은: 0, 동: 0 });
-    } else {
-      alert("업데이트할 항목을 선택해주세요.");
+    }
+    if (editIndex === -1) {
+      alert("등록되어있지 않은 국가입니다.");
     }
   };
 
